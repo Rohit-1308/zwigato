@@ -2,8 +2,8 @@ import * as image from "../../assets/images/homeImage.jpg";
 import * as Indian_flag from "../../assets/images/Indian_flag.webp"
 import "./Home.css";
 import Location from "./Location";
-
 const Home = () => {
+
   return (
     <>
       <div className="container">

@@ -13,6 +13,7 @@ const Location = (props: { name: string }) => {
     if (click == true) {
       navigate('/landingPage', { replace: false })
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [click])
 
 
