@@ -18,7 +18,7 @@ const Navbar = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gotocart])
     return (
-        <div className="flex w-screen justify-center py-3 bg-white">
+        <div className=" flex w-screen justify-center py-3 bg-white">
             <h1 className="text-3xl font-extrabold text-black mr-10 mt-2">Zwigato</h1>
             <div className="flex min-w-fit justify-center gap-x-5 search-bar rounded-lg px-2">
                 <div className="input-container">

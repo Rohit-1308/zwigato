@@ -1,7 +1,7 @@
 import Items from "./Items"
 import { useState, useEffect } from "react"
 import { cartItem } from "../../Models/addtoCartModel"
-// import { itemData } from "./itemdata"
+import { itemData } from "./itemdata"
 import axios from 'axios'
 const FoodItems = () => {
 
@@ -31,12 +31,14 @@ const FoodItems = () => {
       <h1 className="text-black text-4xl ml-3">Delivery Restaurants in Dehradun</h1>
       <div className="flex flex-wrap p-11">
         {
-          cartList.map((item, index) => {
+          // cartList.map((item, index) => {
+          itemData.map((item, index) => {
             return (
               <Items addtocart={addToItemsList} removeFromCart={removeFromItemsList} itemData={item} key={index} index={index} />
             )
           })
         }
+
       </div>
 
     </div>
