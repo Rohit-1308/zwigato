@@ -1,6 +1,6 @@
 import { AiOutlineDelete } from 'react-icons/ai'
 import { cartItem } from '../../Models/addtoCartModel'
-import { itemData } from '../MainPage/itemdata'
+// import { itemData } from '../MainPage/itemdata'
 import { useState } from "react"
 
 const CartItem = (props: { cartItem: cartItem }) => {

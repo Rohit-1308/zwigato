@@ -62,3 +62,4 @@ export const itemData: cartItem[] = [
         history: "1650+ orders placed from here recently"
     },
 ]
+

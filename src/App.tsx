@@ -9,26 +9,28 @@ import {
   Route
  
 } from "react-router-dom";
-import { cartItem } from './Models/addtoCartModel';
 
-export const CartContext = React.createContext({ "name": "rohit" })
-
+import { store } from './store/store'
+import { Provider } from 'react-redux';
+import { enableMapSet } from 'immer'
+import Navbar from './components/Navbar';
 
 function App() {
-  const [items, setitems] = useState({ "name": "pooja" })
+  enableMapSet()
 
   return (
 
-    <CartContext.Provider value={{items,setitems}}>
+    <Provider store={store}>
+
       <BrowserRouter>
+        <Navbar />
       <Routes>
         <Route   path='/' element={<Home/>}/>
         <Route path='/landingPage' element={<MainPage/>}/>
           <Route path='/cart' element={<CartPage />} />
       </Routes>
-    </BrowserRouter>
-    </CartContext.Provider>
-    
+      </BrowserRouter>
+    </Provider>
   )
 }
 

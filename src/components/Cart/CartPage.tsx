@@ -1,21 +1,22 @@
-import Navbar from '../MainPage/Navbar'
+import { RootState } from '../../store/store'
+import Navbar from '../Navbar'
 import CartItem from './CartItem'
-import { itemData } from '../MainPage/itemdata'
-
+import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 const CartPage = () => {
+    const cartMap = useSelector((state: RootState) => state.cart.itemsMap)
+    const cartArray = [...cartMap.values()]
+    console.log(cartArray)
     return (
         <div className="bg-white h-screen w-screen">
-            <div className='fixed z-10 bg-white'>
-
-                <Navbar />
-            </div>
             <div className='w-screen f-full flex' >
 
                 <div className="pl-10 mt-20 w-full min-h-fit flex-1 bg-white">
                     {
-                        itemData.map((item,index)=>(
-                            <CartItem cartItem={item} key={index}/>
-                        ))
+
+                        // cartArray.map((value,index)=>{
+                        //     <CartItem cartItem={item} key={index}/>
+                        // })
                     }
                 </div>
                 <div className="bg-red-200 scroll-m-0 text-black fixed top-20 right-3 w-5/12 h-4/5">

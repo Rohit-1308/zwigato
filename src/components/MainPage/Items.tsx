@@ -1,10 +1,20 @@
 import { MdShowChart } from 'react-icons/md'
 import { cartItem } from '../../Models/addtoCartModel';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { addToItemsCart, deleteItemFromCart } from '../Cart/cartSlice'
 import { IoCartOutline, IoCartSharp } from 'react-icons/io5'
-const Items = (props: { index: number, itemData: cartItem, addtocart: (key: number) => any }) => {
+// import { itemData } from './itemdata';
+const Items = (props: { index: number, itemData: cartItem, addtocart: (item: cartItem) => any, removeFromCart: (key: number) => any }) => {
+    const dispatch = useDispatch()
     const [pushed, setPushed] = useState(false)
-    // const cartitemContext=useContext(CartContext)
+
+    useEffect(() => {
+        console.log()
+
+    }, [pushed])
+
+
     return (
         <div className="text-black min-w-min max-w-sm h-15  p-2 rounded-lg hover:shadow-lg hover:border m-6" >
             <img src={props.itemData.img} className=" h-64 rounded-xl" />
@@ -28,9 +38,15 @@ const Items = (props: { index: number, itemData: cartItem, addtocart: (key: numb
                 </div>
                 <p className="text-sm font-light text-gray-500 mt-1">{props.itemData.history}</p>
                 <div className='my-2 flex justify-self-end transition-all ease-linear' onClick={() => {
-                    setPushed(!pushed)
-                    if(!pushed){
-                        props.addtocart(props.index)
+                    if (pushed == false) {
+                        console.log("pushed false")
+                        dispatch(addToItemsCart({i:props.itemData}))
+                        setPushed(true)
+                    } else {
+                        //remove from addtoCa
+                        console.log("pushed true")
+                        dispatch(deleteItemFromCart)
+                        setPushed(false)
                     }
                 }}>
 
